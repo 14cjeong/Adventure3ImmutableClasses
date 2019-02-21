@@ -21,7 +21,13 @@ public class Location {
     public Location(int locationID, String description, Map<String, Integer> exits) {
         this.locationID = locationID;
         this.description = description;
-        this.exits = new HashMap<String, Integer>(exits);
+        //this new if statement stops the program from crashing
+        //after line 19 was modified to be null
+        if(exits !=null) {
+            this.exits = new HashMap<String, Integer>(exits);
+        } else {
+            this.exits = new HashMap<String, Integer>();
+        }
         this.exits.put("Q", 0);
     }
 
